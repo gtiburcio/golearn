@@ -11,9 +11,15 @@ func main() {
 	*p++
 	i++
 
+	teste(p)
+
 	println("pegar o valor do ponteiro", *p)
 	println("pegar o valor da origem", i)
 
 	println("pegar o endereço que o ponteiro está apontando", p)
 	println("pegar o endereço de i", &i)
+}
+
+func teste(value *int) {
+	*value++
 }
