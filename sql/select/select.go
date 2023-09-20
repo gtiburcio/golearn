@@ -23,9 +23,15 @@ func main() {
 	rows, _ := db.Query("select id, name from users where id > ?", 2)
 	defer rows.Close()
 
+	var users []user
+
 	for rows.Next() {
 		var u user
 		rows.Scan(&u.id, &u.name)
+		users = append(users, u)
+	}
+
+	for _, u := range users {
 		fmt.Println(u)
 	}
 }
